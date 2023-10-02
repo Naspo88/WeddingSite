@@ -34,7 +34,7 @@ const AppHeader = styled.header`
 `;
 
 const WelcomePage = () => (
-  <App>
+  <App data-testid="welcome">
     <AppHeader>
       <AppLogo src={logo} alt="logo" />
       <p>Desi and Roberto Wedding!!</p>

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import HeaderMenu from "./components/routing/HeaderMenu/HeaderMenu";
 import WelcomePage from "./components/pages/WelcomePage/WelcomePage";
 import InfosPage from "./components/pages/InfosPage/InfosPage";
@@ -36,8 +36,9 @@ const App = () => {
       <HeaderMenu pages={pages}>
         <Routes>
           {pages.map(({ id, href, component }) => (
-            <Route key={id} path={`WeddingSite/${href}`} element={component} />
+            <Route key={id} path={`/WeddingSite${href}`} element={component} />
           ))}
+          <Route path="/" element={<Navigate to="/WeddingSite" replace />} />
         </Routes>
       </HeaderMenu>
     </BrowserRouter>

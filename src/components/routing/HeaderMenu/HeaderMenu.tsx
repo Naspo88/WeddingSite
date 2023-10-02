@@ -21,7 +21,7 @@ const HeaderMenu = ({ children, pages = [] }: HeaderMenuProps) => (
     <MenuBar>
       <img src={logo} alt="homepage-logo" />
       {pages.map(({ href, name }) => (
-        <a href={href}>{name}</a>
+        <a href={`/WeddingSite${href}`}>{name}</a>
       ))}
     </MenuBar>
     {children}
