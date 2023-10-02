@@ -1,16 +1,20 @@
-name: CI
+name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
   workflow_dispatch:
+permissions:
+  contents: write
 
 jobs:
-  build:
+  deploy:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
 
       - name: Setup node
         uses: actions/setup-node@v3.6.0
@@ -24,21 +28,7 @@ jobs:
       - name: Build the project
         run: yarn build
 
-      - name: Upload Pages artefact
-        uses: actions/upload-pages-artifact@v2
-
-  deploy:
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
