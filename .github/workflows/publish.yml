@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
@@ -11,13 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
+      - name: Setup node
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 16.x
+          cache: "yarn"
+
+      - name: Install dependencies dependencies
+        run: yarn install
+
       - name: Build the project
         run: yarn build
 
       - name: Upload Pages artefact
         uses: actions/upload-pages-artifact@v2
-        
+
   deploy:
     needs: build
     permissions:
