@@ -1,0 +1,27 @@
+name: Unit test and scan
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  unit:
+    concurrency: unit-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 16.x
+          cache: yarn
+
+      - name: Install dependencies dependencies
+        run: yarn install
+
+      - name: Test the project
+        run: yarn test
