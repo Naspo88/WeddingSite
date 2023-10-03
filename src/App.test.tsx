@@ -20,7 +20,7 @@ describe("App", () => {
   it(`Click on Infos link to correct page`, async () => {
     renderApp();
 
-    act(() => screen.getByText("Infos").click());
+    screen.getByText("Infos").click();
 
     await screen.findByTestId("infos");
   });

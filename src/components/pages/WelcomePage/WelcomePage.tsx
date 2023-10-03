@@ -23,14 +23,14 @@ const AppLogo = styled.img`
 `;
 
 const AppHeader = styled.header`
-  background-color: #282c34;
+  background-color: #272932;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #dbdbdb;
 `;
 
 const WelcomePage = () => (
