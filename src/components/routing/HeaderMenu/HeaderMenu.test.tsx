@@ -1,5 +1,6 @@
 import HeaderMenu from "./HeaderMenu";
 import { Page } from "../../../App";
+import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 
 const defaultPages: Page[] = [
@@ -11,7 +12,8 @@ const renderHader = () =>
   render(
     <HeaderMenu pages={defaultPages}>
       <p>Wrapped stuff</p>
-    </HeaderMenu>
+    </HeaderMenu>,
+    { wrapper: MemoryRouter }
   );
 
 describe("Header Menu", () => {
@@ -19,12 +21,6 @@ describe("Header Menu", () => {
     renderHader();
 
     expect(screen.getByText("Wrapped stuff")).toBeInTheDocument();
-  });
-
-  it("Render the homepage logo", () => {
-    renderHader();
-
-    expect(screen.getByAltText("homepage-logo")).toBeInTheDocument();
   });
 
   it("Render all pages we pass", () => {

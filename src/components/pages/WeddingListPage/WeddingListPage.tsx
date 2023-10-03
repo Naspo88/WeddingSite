@@ -1,3 +1,5 @@
-const WeddingListPage = () => <>Wedding List Page</>;
+const WeddingListPage = () => (
+  <div data-testid="wedding-list">Wedding List Page</div>
+);
 
 export default WeddingListPage;

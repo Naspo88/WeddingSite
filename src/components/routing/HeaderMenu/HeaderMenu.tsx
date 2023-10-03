@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Page } from "../../../App";
-import logo from "./logo.svg";
 
 interface HeaderMenuProps {
   children: ReactNode;
@@ -12,16 +12,27 @@ const MenuBar = styled.div`
   display: flex;
   width: 100%;
   height: 40px;
-  background-color: #232323;
-  color: white;
+  background-color: #27295f;
+  color: #dbdbdb;
+  gap: 16px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #dbdbdb;
+  &:hover {
+    color: #ffffff;
+  }
 `;
 
 const HeaderMenu = ({ children, pages = [] }: HeaderMenuProps) => (
   <>
     <MenuBar>
-      <img src={logo} alt="homepage-logo" />
       {pages.map(({ href, name }) => (
-        <a href={href}>{name}</a>
+        <StyledLink to={`/WeddingSite${href}`}>{name}</StyledLink>
       ))}
     </MenuBar>
     {children}
