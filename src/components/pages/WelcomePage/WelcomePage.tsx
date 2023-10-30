@@ -14,11 +14,7 @@ const Page = styled.div`
 
 const WelcomePage = () => (
   <Page data-testid="welcome">
-    <i>
-      Per me si va ne la città dolente, per me si va ne l'etterno dolore, per me
-      si va tra la perduta gente!
-    </i>
-    <p>Test some changes 2</p>
+    <i>Desi & Roberto</i>
   </Page>
 );
 
