@@ -8,10 +8,11 @@ interface HeaderMenuProps {
   pages?: Page[];
 }
 
+export const headerHeight = "40px";
 const MenuBar = styled.div`
   display: flex;
   width: 100%;
-  height: 40px;
+  height: ${headerHeight};
   background-color: #27295f;
   color: #dbdbdb;
   gap: 16px;
