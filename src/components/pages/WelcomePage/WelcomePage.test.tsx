@@ -3,6 +3,5 @@ import WelcomePage from "./WelcomePage";
 
 test("renders learn react link", () => {
   render(<WelcomePage />);
-  const linkElement = screen.getByText("Desi & Roberto");
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText("Desi and Roberto")).toBeInTheDocument();
 });

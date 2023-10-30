@@ -14,7 +14,7 @@ const Page = styled.div`
 
 const WelcomePage = () => (
   <Page data-testid="welcome">
-    <i>Desi & Roberto</i>
+    <i>Desi and Roberto</i>
   </Page>
 );
 
