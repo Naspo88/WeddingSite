@@ -1,0 +1,45 @@
+"""
+User Schema
+"""
+type User {
+  uuid: String
+  name: String
+  email: String
+  questions: [Question]
+}
+
+input UserInput {
+  name: String
+  questions: [QuestionInput]
+}
+
+"""
+User questions' Schema
+"""
+type Question {
+  uuid: String
+  text: String
+}
+
+input QuestionInput {
+  Text: String
+}
+
+"""
+Query Schemas
+"""
+type Query {
+  mysql_getUser(uuid: String!): User
+}
+
+"""
+Mutation Schemas
+"""
+type Mutation {
+  mysql_createUser(input: UserInput!): User
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
